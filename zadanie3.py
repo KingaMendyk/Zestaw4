@@ -4,13 +4,13 @@ def caesar_cipher(text, key, alphabet=None):
     if alphabet is None:
         alphabet = list("abcdefghijklmnopqrstuvwxyz".strip())
 
-    text = list(text.strip())
+    text = list(text.lower().strip())
     res = ""
     for t in text:
-        if t.lower() in alphabet:
-            res += alphabet[(alphabet.index(t.lower()) + key) % len(alphabet)]
+        if t in alphabet:
+            res += alphabet[(alphabet.index(t) + key) % len(alphabet)]
         else:
-            res += t.lower()
+            res += t
     return res
 
 
